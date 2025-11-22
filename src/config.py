@@ -1,11 +1,12 @@
 from pathlib import Path
 
 #根目录
-ROOT_DIR=Path(__file__).parent.parent.parent
+ROOT_DIR=Path(__file__).parent.parent
 # print(ROOT_DIR)
 
 #数据目录
 RAW_DATA=ROOT_DIR / 'data' / 'raw'
+PROCESSED_DATA=ROOT_DIR / 'data' / 'processed'
 
 #模型目录
 CHECKPOINT_BEST_DIR=ROOT_DIR / 'checkpoint' / 'best'
