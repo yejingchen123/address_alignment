@@ -7,6 +7,9 @@ def process_text(text_list,tokenizer):
     all_text=[]
     for text in text_list:
         text=text.strip()
+        text=text.replace('，','')
+        text=text.replace('。','')
+        text=text.replace(' ','')
         all_text.append(list(text))
     
     intputs=tokenizer(all_text,truncation=True,padding=True,is_split_into_words=True,return_tensors='pt')
@@ -63,13 +66,19 @@ def predict(text):
     inputs=process_text(text,tokenizer)
     results=predict_batch(model,inputs,device,tokenizer)
     
-    for result in results:
-        for key,value in result.items():
-            print(f'{key}:{value}')
-        print("="*20)
+    return results
+    
+    # for result in results:
+    #     for key,value in result.items():
+    #         print(f'{key}:{value}')
+    #     print("="*20)
     
 
 
 if __name__ == "__main__":
     text=['小明18888888888江苏省南京市江宁区兰台公寓','小王18888888888四川省成都市犀浦镇犀安路999号']
-    predict(text)
+    results=predict(text)
+    for result in results:
+        for key,value in result.items():
+            print(f'{key}:{value}')
+        print("="*20)
