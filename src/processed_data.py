@@ -1,6 +1,6 @@
 import config
-from transformers import AutoTokenizer,AutoModelForTokenClassification
-from datasets import load_dataset,ClassLabel
+from transformers import AutoTokenizer
+from datasets import load_dataset
 
 
 def process():
