@@ -29,5 +29,5 @@ if __name__ == "__main__":
     dataloder=get_dataloder(istrain=True)
     for batch in dataloder:
         for k,v in batch.items():
-            print(f'{k}: {v.shape}')
+            print(f'{k}: {v}')
         break
